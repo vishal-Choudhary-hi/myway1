@@ -7,7 +7,6 @@ function App() {
   const [name, setName] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`https://test-api-v3.myways.ai/user?email=${email}`);
     try {
       let response = await axios.get(
         `https://test-api-v3.myways.ai/user?email=${email}`
@@ -15,7 +14,6 @@ function App() {
       alert("User Found");
     } catch (error) {
       let data = { email: email, phone: number, name: name };
-      console.log(data);
       let res = await axios.post(`https://test-api-v3.myways.ai/user`, data);
       alert("User Created Successfully");
     }
